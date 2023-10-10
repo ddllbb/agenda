@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>Contactos</title>
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+<script type="text/javascript" charset="utf8"
+	src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js">
+</script>
+<script>
+	$(document).ready(function() {
+		$('#datos').DataTable();
+	});
+</script>
+
+</head>
+<body>
+	<header> </header>
+	<main>
+		<div id="Listado">
+			<table id="datos">
+				<thead>
+					<tr>
+						<td>Nombre</td>
+						<td>Telefono</td>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="elem:${listaParaHtml}">
+						<td th:text="${elem.nombre}"></td>
+						<td th:text="${elem.telefono}"></td>		
+						<td>
+							<a th:href="@{'/'+${elem.id}}"> 
+							<img src="https://img.icons8.com/nolan/64/google-web-search.png" width="20" height="20"></a>
+							
+							<a th:href="@{'/m/'+${elem.id}}"> 
+							<img src="https://img.icons8.com/external-sbts2018-outline-color-sbts2018/58/000000/external-modify-basic-ui-elements-2.5-sbts2018-outline-color-sbts2018.png" width="20" height="20"></a>
+							
+							<a th:href="@{'/d/'+${elem.id}}"> 
+							<img src="https://img.icons8.com/cute-clipart/64/000000/delete-forever.png" width="20" height="20"></a>				
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+		
+		<div id="creacion">
+			<h2>Crear Contacto</h2>
+			<form id ="formCrear" method="post" th:object="${unContactoEnBlanco}" th:action="@{'/a/n'}">
+			<input type="hidden" th:field="*{id}" required/></br>
+			Nombre:<input type="text" th:field="*{nombre}" required/></br>
+			Telefono:<input type="text" th:field="*{telefono}" required/></br>
+			<a th:href="@{'/a/'}"> <button>Crear Contacto</button></a>
+			</form>			
+		</div>
+	</main>
+	<footer> </footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Modificar contacto</title>
+
+</head>
+<body>
+	<header> </header>
+	<main>
+		<div id="ver contacto">	
+			<h1>CONTACTO</h1>
+			<h3 th:text="${unContactoParaHtml.nombre}"></h3>
+			<h3 th:text="${unContactoParaHtml.telefono}"></h3>		
+		</div>
+		
+		<div id="modificacion">
+			<h1>Modificar Contacto</h1>
+			
+			<form id ="formModificar" method="post" th:object="${unContactoParaHtml}" th:action="@{'/a/m'}">
+			<input type="hidden" th:field="*{id}"/>
+			Nombre:<input type="text" th:field="*{nombre}" required/></br>
+			Telefono:<input type="text" th:field="*{telefono}" required/></br>
+			<a th:href="@{'/a/'}"> <button>Modificar</button></a>
+			</form>			
+		</div>
+	
+		<div id="volver a listado">
+		
+			<a th:href="@{/a}"> <button>Lista de contactos</button></a>
+			</form>	
+			
+		</div>
+	</main>
+	<footer> </footer>
+</body>
+</html>

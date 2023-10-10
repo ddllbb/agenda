@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Crear contacto</title>
+
+</head>
+<body>
+	<header> </header>
+	<main>
+		<div id="creacion">
+			<h1>Crear Contacto</h1>
+			
+			<form id ="formModificar" method="post" th:object="${unContactoEnBlanco}" th:action="@{'/a/n'}">
+			Id:<input type="number" th:field="*{id}" required/></br>
+			Nombre:<input type="text" th:field="*{nombre}" required/></br>
+			Telefono:<input type="text" th:field="*{telefono}" required/></br>
+			<a th:href="@{'/a/'}"> <button>Crear</button></a>
+			</form>			
+		</div>
+	
+		<div id="volver a listado">
+		
+			<a th:href="@{/a}"> <button>Lista de contactos</button></a>
+			</form>	
+			
+		</div>
+	</main>
+	<footer> </footer>
+</body>
+</html>

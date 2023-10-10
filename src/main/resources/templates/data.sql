@@ -1,0 +1,1 @@
+INSERT INTO LIBRO(titulo) values('Directo al infierno');

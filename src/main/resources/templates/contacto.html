@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Contacto</title>
+</head>
+
+<body>
+	<header> </header>
+	<main>
+		<div id="ver contacto">
+			<h1>CONTACTO</h1>
+			<h2 th:text="${unContactoParaHtml.nombre}"></h2>
+			<h2 th:text="${unContactoParaHtml.telefono}"></h2>
+		</div>
+		
+		<div id="volver a listado">
+			<a th:href="@{/a}"> <button>Lista de contactos</button></a>
+			<form></form>	
+		</div>
+	</main>
+	<footer> </footer>
+</body>
+</html>
